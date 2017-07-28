@@ -6,7 +6,6 @@ import java.util.List;
 import com.in28minutes.data.api.TodoService;
 
 public class TodoBusinessImpl {
-
 	private TodoService todoService;
 
 	TodoBusinessImpl(TodoService todoService) {

@@ -9,7 +9,9 @@ import static org.mockito.Mockito.mock;
 
 import java.util.List;
 
+import org.hamcrest.Matchers;
 import org.junit.Test;
+import org.mockito.BDDMockito;
 import org.mockito.Mockito;
 
 public class ListTest {
@@ -57,5 +59,24 @@ public class ListTest {
 		// then
 		assertThat("lopes", is(list.get(0)));
 		assertThat("lopes", is(list.get(0)));
+	}
+
+	@Test
+	public void testSizeCollection_withHarcrest() {
+		List<String> list = mock(List.class);
+
+		// ----> Given
+		BDDMockito.given(list.size()).willReturn(2);
+
+		// ----> When
+		int listSize = list.size();
+
+		// ----> Then
+
+		// Check if the method size was called
+		BDDMockito.then(list).should().size();
+
+		// and check if the size of list is equals 2
+		assertThat(listSize, Matchers.is(2));
 	}
 }
